@@ -3,14 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PATHENIUS-UX | Tech, Bots, Boosting & CyberSec</title>
+<title>VERTEXFLOW | Learn Tech, Grow & Succeed</title>
 <style>
   *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;scroll-behavior:smooth}
-  body{background:#050505;color:#fff;line-height:1.7}
+  body{background:#050505;color:#fff;line-height:1.7;overflow-x:hidden}
   
-  /* Hero with background */
-  header{background:linear-gradient(rgba(0,0,0,0.7),rgba(0,119,255,0.6)),url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80') center/cover no-repeat;padding:100px 20px;text-align:center}
-  header h1{font-size:3rem;margin-bottom:10px;text-shadow:0 0 10px #00f5ff}
+  header{background:linear-gradient(-45deg,#00f5ff,#0077ff,#ff00ff,#00f5ff);background-size:400% 400%;animation:gradient 15s ease infinite;padding:100px 20px;text-align:center}
+  @keyframes gradient {0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+  header h1{font-size:3rem;text-shadow:0 0 15px #00f5ff}
+  
   nav{margin-top:20px} nav a{color:#fff;margin:0 12px;text-decoration:none;font-weight:bold}
   .btn{display:inline-block;background:#00f5ff;color:#000;padding:15px 30px;border-radius:8px;text-decoration:none;font-weight:bold;margin-top:20px;transition:0.3s}
   .btn:hover{background:#fff;transform:scale(1.05)}
@@ -18,115 +19,182 @@
   section{padding:70px 20px;max-width:1100px;margin:auto}
   h2{text-align:center;margin-bottom:40px;font-size:2.2rem;color:#00f5ff}
   
-  /* Cards with bg */
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:25px}
-  .card{background:linear-gradient(145deg,#111,#1a1a1a);padding:25px;border-radius:15px;border:1px solid #222;transition:0.3s}
-  .card:hover{border-color:#00f5ff;box-shadow:0 0 15px #00f5ff50;transform:translateY(-8px)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px}
+  .card{background:#111;padding:25px;border-radius:15px;border:1px solid #222;cursor:pointer;transition:0.3s}
+  .card:hover{border-color:#00f5ff;box-shadow:0 0 20px #00f5ff50;transform:translateY(-8px)}
   .card h3{color:#00f5ff;margin-bottom:10px}
   
-  /* Tips section */
-  .tips{background:#0a0a0a} 
-  .tip{background:#111;padding:15px;margin:10px 0;border-left:4px solid #00f5ff;border-radius:5px}
+  /* Testimonials */
+  .testimonials{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:25px}
+  .testimonial{background:#111;padding:25px;border-radius:15px;border-left:4px solid #00f5ff}
+  .testimonial .name{color:#00f5ff;font-weight:bold;margin-top:10px}
+  .stars{color:#FFD700;margin-bottom:10px}
   
-  footer{text-align:center;padding:30px;background:#000;font-size:0.9rem;color:#aaa}
+  /* Pricing */
+  .pricing{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;margin-top:30px}
+  .price-card{background:linear-gradient(145deg,#111,#1a1a1a);padding:30px;border-radius:15px;border:2px solid #222;text-align:center}
+  .price-card.popular{border-color:#00f5ff;box-shadow:0 0 25px #00f5ff50}
+  .price{font-size:2.5rem;color:#00f5ff;margin:15px 0}
+  .price-card ul{list-style:none;margin:20px 0;text-align:left}
+  .price-card li{margin:10px 0} .price-card li:before{content:"✓ ";color:#00f5ff}
+  
+  /* Blog */
+  .blog-post{background:#111;padding:20px;border-radius:10px;margin-bottom:20px;border:1px solid #222}
+  .blog-post .date{color:#aaa;font-size:0.9rem}
+  
+  .modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);z-index:1001;overflow-y:auto;padding:40px 20px}
+  .modal-content{background:#111;max-width:800px;margin:auto;padding:30px;border-radius:15px;border:2px solid #00f5ff}
+  .close{float:right;font-size:28px;cursor:pointer;color:#ff0044}
+  
+  .video-box{background:#000;padding:20px;border-radius:15px;border:2px solid #00f5ff}
+  video{width:100%;border-radius:10px}
+  footer{text-align:center;padding:30px;background:#000;color:#aaa}
   .whatsapp-btn{position:fixed;bottom:20px;right:20px;background:#25D366;padding:15px;border-radius:50%;box-shadow:0 0 20px #25D366;z-index:999}
   
-  /* Popup */
-  #popup{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);z-index:1000;justify-content:center;align-items:center}
-  .popup-box{background:#111;padding:30px;border-radius:15px;text-align:center;border:2px solid #00f5ff;max-width:400px}
-  .popup-box h3{color:#00f5ff;margin-bottom:10px}
-  .close-btn{background:red;color:#fff;padding:8px 15px;border:none;border-radius:5px;margin-top:15px;cursor:pointer}
+  #popup{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:1000;justify-content:center;align-items:center}
+  .popup-box{background:#111;padding:30px;border-radius:15px;text-align:center;border:2px solid #00f5ff;max-width:400px;animation:pop 0.5s}
+  @keyframes pop{from{transform:scale(0.5)}to{transform:scale(1)}}
 </style>
 </head>
 <body>
 
 <header>
-  <h1>⚡ PATHENIUS-UX ⚡</h1>
-  <p>Tech Solutions | WhatsApp Bots | Boosting | Cyber Security</p>
+  <h1>🚀 VERTEXFLOW 💙</h1>
+  <p>Technology is evolving every day—don’t get left behind!</p>
   <nav>
-    <a href="#bots">Bots</a>
-    <a href="#boost">Boosting</a>
+    <a href="#about">About</a>
     <a href="#lessons">Lessons</a>
-    <a href="#tips">Tips</a>
-    <a href="#cyber">CyberSec</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#testimonials">Reviews</a>
+    <a href="#blog">Blog</a>
   </nav>
-  <a href="https://wa.me/254751233681?text=Hi%20PATHENIUS-UX%20I%20need%20your%20services" class="btn">Chat With Us</a>
+  <a href="https://wa.me/254751233681?text=Hi%20VERTEXFLOW%20I%20want%20to%20join" class="btn">Join WhatsApp Community</a>
 </header>
 
-<section id="bots">
-  <h2>🤖 VERTEXFLOW MD - WhatsApp Bots</h2>
-  <div class="grid">
-    <div class="card"><h3>Anti-Link & Anti-Spam</h3><p>Auto delete links, scams, and protect your group 24/7</p></div>
-    <div class="card"><h3>Auto Welcome & Goodbye</h3><p>Custom images + rules for new members</p></div>
-    <div class="card"><h3>Hidden Admin Tools</h3><p>Stealth kick, mute, tagall, view deleted messages</p></div>
-  </div>
-</section>
-
-<section id="boost" style="background:#0a0a0a">
-  <h2>📈 Social Media Boosting</h2>
-  <div class="grid">
-    <div class="card"><h3>YouTube</h3><p>Real Watchtime, Views, Subscribers. Fast delivery</p></div>
-    <div class="card"><h3>TikTok</h3><p>Followers, Likes, Comments. Make you go viral</p></div>
-    <div class="card"><h3>Instagram & Facebook</h3><p>Followers, Reels Views, Page Likes</p></div>
+<section id="about">
+  <h2>What is VERTEXFLOW?</h2>
+  <div class="video-box">
+    <video controls autoplay muted loop playsinline>
+      <source src="https://videos.pexels.com/video-files/3130285/3130285-uhd_2560_1440_25fps.mp4" type="video/mp4">
+    </video>
+    <p style="text-align:center;margin-top:15px"><b>VERTEXFLOW</b> is a community built to help you learn, grow, and succeed. 
+    Free tech lessons, WhatsApp bot automations, AI tips, freelancing advice, and cybersecurity hacks. 💙🚀</p>
   </div>
 </section>
 
 <section id="lessons">
-  <h2>💻 Tech Lessons - Learn With Us</h2>
+  <h2>📚 10 Tech Lessons - Click to Learn</h2>
   <div class="grid">
-    <div class="card"><h3>Bot Development</h3><p>Build WhatsApp bots with Node.js from zero to pro</p></div>
-    <div class="card"><h3>Web Development</h3><p>HTML, CSS, JS. Make websites like this one</p></div>
-    <div class="card"><h3>Smartphone Hidden Tools</h3><p>Secret codes, boost speed, privacy tricks</p></div>
+    <div class="card" onclick="openLesson('l1')"><h3>1. Build WhatsApp Bot</h3><p>Node.js + Baileys from zero</p></div>
+    <div class="card" onclick="openLesson('l2')"><h3>2. Website From Scratch</h3><p>HTML, CSS, JS + GitHub</p></div>
+    <div class="card" onclick="openLesson('l3')"><h3>3. Smartphone Hidden Codes</h3><p>Boost speed & privacy</p></div>
+    <div class="card" onclick="openLesson('l4')"><h3>4. Freelancing 101</h3><p>Get clients on Fiverr</p></div>
+    <div class="card" onclick="openLesson('l5')"><h3>5. AI Prompt Mastery</h3><p>ChatGPT for money</p></div>
+    <div class="card" onclick="openLesson('l6')"><h3>6. CyberSec Basics</h3><p>Stay safe online</p></div>
+    <div class="card" onclick="openLesson('l7')"><h3>7. TikTok Growth</h3><p>Go viral in 30 days</p></div>
+    <div class="card" onclick="openLesson('l8')"><h3>8. Canva Design</h3><p>Make pro posters</p></div>
+    <div class="card" onclick="openLesson('l9')"><h3>9. Passive Income</h3><p>Earn with digital products</p></div>
+    <div class="card" onclick="openLesson('l10')"><h3>10. GitHub for Beginners</h3><p>Host anything free</p></div>
   </div>
 </section>
 
-<section id="tips" class="tips">
-  <h2>🧠 Daily Smartphone Text Tips</h2>
-  <div class="tip">💡 Tip 1: Dial `*#06#` to check your phone IMEI instantly</div>
-  <div class="tip">💡 Tip 2: Use ` airplane mode 10s` to refresh slow internet</div>
-  <div class="tip">💡 Tip 3: Lock WhatsApp with fingerprint in Settings > Privacy</div>
-  <p style="text-align:center;margin-top:20px">More tips sent weekly on WhatsApp</p>
-</section>
-
-<section id="cyber" style="background:#0a0a0a">
-  <h2>🛡️ Cyber Security & Anti-Scam</h2>
-  <div class="grid">
-    <div class="card"><h3>Account Safety</h3><p>2FA, Strong passwords, avoid hackers</p></div>
-    <div class="card"><h3>Spot Fake Links</h3><p>How to identify phishing and scam groups</p></div>
-    <div class="card"><h3>Privacy Tools</h3><p>VPN, Hide IP, Stay anonymous online</p></div>
+<section id="pricing" style="background:#0a0a0a">
+  <h2>💰 Services & Pricing - Pay After Delivery</h2>
+  <div class="pricing">
+    <div class="price-card">
+      <h3>VERTEXFLOW Bot Setup</h3>
+      <div class="price">KSh 1,500</div>
+      <ul><li>Anti-Link & Anti-Spam</li><li>Auto Welcome/Goodbye</li><li>Admin Tools</li><li>1 Month Support</li></ul>
+      <a href="https://wa.me/254751233681?text=I%20want%20Bot%20Setup" class="btn">Order Now</a>
+    </div>
+    <div class="price-card popular">
+      <h3>Website Design</h3>
+      <div class="price">KSh 3,000</div>
+      <ul><li>Professional Site</li><li>Mobile Responsive</li><li>WhatsApp Button</li><li>Free Hosting</li></ul>
+      <a href="https://wa.me/254751233681?text=I%20want%20Website%20Design" class="btn">Order Now</a>
+    </div>
+    <div class="price-card">
+      <h3>Social Media Boost</h3>
+      <div class="price">KSh 1,000+</div>
+      <ul><li>YouTube Watchtime</li><li>TikTok Followers</li><li>IG Likes & Views</li><li>Fast Delivery</li></ul>
+      <a href="https://wa.me/254751233681?text=I%20want%20Boosting" class="btn">Order Now</a>
+    </div>
   </div>
 </section>
 
-<section style="text-align:center">
-  <h2>Order Any Service</h2>
-  <p>Pay Only After Service is Delivered ✅</p>
-  <a href="https://wa.me/254751233681?text=Hi%20PATHENIUS-UX%20I%20want%20to%20order%20a%20service" class="btn">Order on WhatsApp</a>
+<section id="testimonials">
+  <h2>⭐ What Our Clients Say</h2>
+  <div class="testimonials">
+    <div class="testimonial">
+      <div class="stars">★★★</div>
+      <p>"Vertexflow set up my WhatsApp bot in 2 hours. Now my group runs itself. Pay after delivery was real!"</p>
+      <div class="name">- Brian K, Nairobi</div>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★</div>
+      <p>"They built me a website just like this one. Professional and clean. Got 3 clients in the first week."</p>
+      <div class="name">- Amina S, Mombasa</div>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <p>"The TikTok growth lesson helped me hit 10k followers in 1 month. The lessons are 100% practical."</p>
+      <div class="name">- Kevin O, Kisumu</div>
+    </div>
+  </div>
+</section>
+
+<section id="blog" style="background:#0a0a0a">
+  <h2>📝 Daily Tech Tips Blog</h2>
+  <div class="blog-post">
+    <div class="date">Aug 21, 2026</div>
+    <h3>3 Ways to Make Money with AI in 2026</h3>
+    <p>1. Sell AI-generated logos on Fiverr. 2. Write blog posts with ChatGPT. 3. Create TikTok scripts with AI. Start today!</p>
+  </div>
+  <div class="blog-post">
+    <div class="date">Aug 20, 2026</div>
+    <h3>Smartphone Code: *#06#</h3>
+    <p>Dial this to check your IMEI instantly. Helps when your phone is stolen. Save this code!</p>
+  </div>
+  <div class="blog-post">
+    <div class="date">Aug 19, 2026</div>
+    <h3>Avoid This WhatsApp Scam</h3>
+    <p>Never click links that say "Your WhatsApp will be deleted". It's phishing. Always verify with WhatsApp official.</p>
+  </div>
 </section>
 
 <footer>
-  <p>© 2026 PATHENIUS-UX. All Rights Reserved.</p>
-  <p>Contact: +254 751 233 681 | Kilifi, Kenya</p>
+  <p>© 2026 VERTEXFLOW. Building the future—one skill at a time 💙🚀</p>
+  <p>Contact: +254 751 233 681 | #VertexFlow #LearnEveryDay</p>
 </footer>
 
-<a href="https://wa.me/254751233681?text=Hi%20PATHENIUS-UX%20I%20need%20your%20services" class="whatsapp-btn">
-  <svg width="30" height="30" fill="#fff" viewBox="0 0 24 24"><path d="M20.52 3.449C18.24 1.245 15.24 0.045 12.04 0h-.003C5.44 0 .08 5.36.08 11.96c0 2.106.549 4.162 1.594 5.98L0 24l6.228-1.634c1.748.956 3.704 1.459 5.698 1.459h.003c6.599 0 11.959-5.36 11.959-11.96 0-3.197-1.245-6.2-3.406-8.456z"/></svg>
-</a>
+<a href="https://wa.me/254751233681" class="whatsapp-btn"><svg width="30" height="30" fill="#fff" viewBox="0 0 24 24"><path d="M20.52 3.449C18.24 1.245 15.24 0.045 12.04 0C5.44 0 .08 5.36.08 11.96c0 2.106.549 4.162 1.594 5.98L0 24l6.228-1.634c1.748.956 3.704 1.459 5.698 1.459c6.599 0 11.959-5.36 11.959-11.96 0-3.197-1.245-6.2-3.406-8.456z"/></svg></a>
 
-<!-- Popup every 5 minutes -->
+<!-- 10 Lesson Modals -->
+<div id="l1" class="modal"><div class="modal-content"><span class="close" onclick="closeLesson('l1')">&times;</span><h2>Build WhatsApp Bot</h2><p>1. Install Node.js<br>2. npm i @whiskeysockets/baileys<br>3. Create index.js<br>4. Run node index.js and scan QR</p></div></div>
+<div id="l2" class="modal"><div class="modal-content"><span class="close" onclick="closeLesson('l2')">&times;</span><h2>Website From Scratch</h2><p>1. Create index.html<br>2. Add HTML + CSS<br>3. git push to GitHub<br>4. Enable GitHub Pages</p></div></div>
+<div id="l3" class="modal"><div class="modal-content"><span class="close" onclick="closeLesson('l3')">&times;</span><h2>Smartphone Hidden Codes</h2><p>*#06# = IMEI<br>*#4636#*#* = Phone Info<br>*#0228# = Battery Status</p></div></div>
+<div id="l4" class="modal"><div class="modal-content"><span class="close" onclick="closeLesson('l4')">&times;</span><h2>Freelancing 101</h2><p>1. Create Fiverr profile<br>2. Gig: "I will create WhatsApp Bot"<br>3. Deliver in 24hrs<br>4. Ask for review</p></div></div>
+<div id="l5" class="modal"><div class="modal-content"><span class="close" onclick="closeLesson('l5')">&times;</span><h2>AI Prompt Mastery</h2><p>"Act as a social media manager. Create 10 TikTok ideas for a tech channel". Sell the results.</p></div></div>
+<div id="l6" class="modal"><div class="modal-content"><span class="close" onclick="closeLesson('l6')">&times;</span><h2>CyberSec Basics</h2><p>1. Turn on 2FA<br>2. Never click unknown links<br>3. Use strong password<br>4. Check URL before login</p></div></div>
+<div id="l7" class="modal"><div class="modal-content"><span class="close" onclick="closeLesson('l7')">&times;</span><h2>TikTok Growth</h2><p>1. Post 3x per day<br>2. First 3 seconds = hook<br>3. Use trending sounds<br>4. Reply to comments</p></div></div>
+<div id="l8" class="modal"><div class="modal-content"><span class="close" onclick="closeLesson('l8')">&times;</span><h2>Canva Design</h2><p>1. Search "YouTube Thumbnail"<br>2. Use bold text + face<br>3. Colors: Blue + Yellow<br>4. Download as PNG</p></div></div>
+<div id="l9" class="modal"><div class="modal-content"><span class="close" onclick="closeLesson('l9')">&times;</span><h2>Passive Income</h2><p>Sell: Ebooks, Canva templates, Bot scripts on Gumroad. Create once, earn forever.</p></div></div>
+<div id="l10" class="modal"><div class="modal-content"><span class="close" onclick="closeLesson('l10')">&times;</span><h2>GitHub for Beginners</h2><p>1. Create repo<br>2. Upload files<br>3. Settings > Pages > main > Save<br>4. Your site is live!</p></div></div>
+
+<!-- Popup after 5 seconds -->
 <div id="popup">
   <div class="popup-box">
-    <h3>⚡ Special Offer!</h3>
-    <p>Come for VERTEXFLOW Bot Setup Today!<br>Pay After Delivery</p>
-    <a href="https://wa.me/254751233681" class="btn">Order Now</a>
-    <br><button class="close-btn" onclick="document.getElementById('popup').style.display='none'">Close</button>
+    <h3>🚀 Welcome to VERTEXFLOW!</h3>
+    <p>Get FREE Tech Lessons + Bot Setup<br>Pay After Delivery</p>
+    <a href="https://wa.me/254751233681" class="btn">Join Now</a>
+    <br><button onclick="document.getElementById('popup').style.display='none'" style="background:red;color:#fff;padding:8px 15px;border:none;border-radius:5px;margin-top:15px;cursor:pointer">Close</button>
   </div>
 </div>
 
 <script>
-// Show popup every 5 minutes = 300000ms
-setInterval(function(){
-  document.getElementById('popup').style.display='flex';
-}, 300000);
+function openLesson(id){document.getElementById(id).style.display='block'}
+function closeLesson(id){document.getElementById(id).style.display='none'}
+setTimeout(function(){document.getElementById('popup').style.display='flex';}, 5000);
 </script>
 
 </body>
