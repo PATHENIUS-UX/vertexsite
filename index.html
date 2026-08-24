@@ -3,198 +3,183 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VERTEXFLOW | Learn Tech, Grow & Succeed</title>
+<title>VERTEXFLOW TECH | Bot Deployment, Boosting, VCF Portal</title>
 <style>
   *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;scroll-behavior:smooth}
-  body{background:#050505;color:#fff;line-height:1.7;overflow-x:hidden}
+  body{background:#020617;color:#fff;line-height:1.7;overflow-x:hidden}
   
-  header{background:linear-gradient(-45deg,#00f5ff,#0077ff,#ff00ff,#00f5ff);background-size:400% 400%;animation:gradient 15s ease infinite;padding:100px 20px;text-align:center}
+  /* Live Animated Background */
+  body:before{content:'';position:fixed;top:0;left:0;width:100%;height:100%;background:linear-gradient(-45deg,#00f5ff,#0077ff,#00f5ff,#0077ff);background-size:400% 400%;animation:gradient 15s ease infinite;z-index:-2;opacity:0.1}
   @keyframes gradient {0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
-  header h1{font-size:3rem;text-shadow:0 0 15px #00f5ff}
   
-  nav{margin-top:20px} nav a{color:#fff;margin:0 12px;text-decoration:none;font-weight:bold}
-  .btn{display:inline-block;background:#00f5ff;color:#000;padding:15px 30px;border-radius:8px;text-decoration:none;font-weight:bold;margin-top:20px;transition:0.3s}
+  /* Floating VERTEXFLOW TECH text */
+  .floating-bg{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);font-size:8vw;font-weight:900;color:#00f5ff20;z-index:-1;pointer-events:none;animation:float 6s ease-in-out infinite}
+  @keyframes float{0%,100%{transform:translate(-50%,-50%) rotate(0deg)}50%{transform:translate(-50%,-60%) rotate(5deg)}}
+  
+  nav{position:fixed;top:0;width:100%;background:#020617f0;backdrop-filter:blur(10px);padding:15px 20px;z-index:100;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #00f5ff30}
+  nav .logo{display:flex;align-items:center;gap:10px;font-weight:bold;font-size:1.2rem;color:#00f5ff}
+  nav .logo img{width:40px;height:40px;border-radius:50%}
+  nav a{color:#fff;margin:0 10px;text-decoration:none;font-size:0.9rem}
+  
+  section{padding:100px 20px;max-width:1200px;margin:auto}
+  h1,h2{text-align:center;color:#00f5ff;margin-bottom:30px}
+  
+  /* Hero */
+  .hero{text-align:center;padding-top:150px}
+  .hero h1{font-size:3rem;text-shadow:0 0 20px #00f5ff}
+  .btn{background:#00f5ff;color:#000;padding:15px 30px;border-radius:8px;text-decoration:none;font-weight:bold;display:inline-block;margin:10px;transition:0.3s}
   .btn:hover{background:#fff;transform:scale(1.05)}
   
-  section{padding:70px 20px;max-width:1100px;margin:auto}
-  h2{text-align:center;margin-bottom:40px;font-size:2.2rem;color:#00f5ff}
-  
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px}
-  .card{background:#111;padding:25px;border-radius:15px;border:1px solid #222;cursor:pointer;transition:0.3s}
-  .card:hover{border-color:#00f5ff;box-shadow:0 0 20px #00f5ff50;transform:translateY(-8px)}
-  .card h3{color:#00f5ff;margin-bottom:10px}
-  
-  /* Testimonials */
-  .testimonials{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:25px}
-  .testimonial{background:#111;padding:25px;border-radius:15px;border-left:4px solid #00f5ff}
-  .testimonial .name{color:#00f5ff;font-weight:bold;margin-top:10px}
-  .stars{color:#FFD700;margin-bottom:10px}
+  /* Cards */
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;margin-top:40px}
+  .card{background:#0a0f1e;padding:25px;border-radius:15px;border:1px solid #00f5ff30;transition:0.3s}
+  .card:hover{border-color:#00f5ff;box-shadow:0 0 25px #00f5ff50;transform:translateY(-8px)}
   
   /* Pricing */
-  .pricing{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;margin-top:30px}
-  .price-card{background:linear-gradient(145deg,#111,#1a1a1a);padding:30px;border-radius:15px;border:2px solid #222;text-align:center}
-  .price-card.popular{border-color:#00f5ff;box-shadow:0 0 25px #00f5ff50}
-  .price{font-size:2.5rem;color:#00f5ff;margin:15px 0}
-  .price-card ul{list-style:none;margin:20px 0;text-align:left}
-  .price-card li{margin:10px 0} .price-card li:before{content:"✓ ";color:#00f5ff}
+  .price{font-size:2rem;color:#00f5ff;margin:15px 0}
+  .whatsapp-btn{background:#25D366;color:#fff;padding:10px 20px;border-radius:8px;text-decoration:none;display:inline-block}
   
-  /* Blog */
-  .blog-post{background:#111;padding:20px;border-radius:10px;margin-bottom:20px;border:1px solid #222}
-  .blog-post .date{color:#aaa;font-size:0.9rem}
+  /* VCF Portal */
+  .vcf-box{background:#0a0f1e;padding:30px;border-radius:15px;border:2px solid #00f5ff}
+  input{width:100%;padding:12px;margin:10px 0;background:#020617;border:1px solid #00f5ff50;border-radius:8px;color:#fff}
   
-  .modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);z-index:1001;overflow-y:auto;padding:40px 20px}
-  .modal-content{background:#111;max-width:800px;margin:auto;padding:30px;border-radius:15px;border:2px solid #00f5ff}
-  .close{float:right;font-size:28px;cursor:pointer;color:#ff0044}
+  /* Testimonials */
+  .testimonial{background:#0a0f1e;padding:20px;border-radius:10px;border-left:4px solid #00f5ff;margin-bottom:20px}
+  .stars{color:#FFD700}
   
-  .video-box{background:#000;padding:20px;border-radius:15px;border:2px solid #00f5ff}
-  video{width:100%;border-radius:10px}
-  footer{text-align:center;padding:30px;background:#000;color:#aaa}
-  .whatsapp-btn{position:fixed;bottom:20px;right:20px;background:#25D366;padding:15px;border-radius:50%;box-shadow:0 0 20px #25D366;z-index:999}
-  
+  /* Popup */
   #popup{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:1000;justify-content:center;align-items:center}
-  .popup-box{background:#111;padding:30px;border-radius:15px;text-align:center;border:2px solid #00f5ff;max-width:400px;animation:pop 0.5s}
-  @keyframes pop{from{transform:scale(0.5)}to{transform:scale(1)}}
+  .popup-box{background:#0a0f1e;padding:30px;border-radius:15px;text-align:center;border:2px solid #00f5ff;max-width:450px}
+  
+  /* Login Modal */
+  #loginModal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:1001;justify-content:center;align-items:center}
+  footer{text-align:center;padding:40px;background:#000;color:#aaa}
+  .whatsapp-float{position:fixed;bottom:20px;right:20px;background:#25D366;padding:15px;border-radius:50%;z-index:999}
 </style>
 </head>
 <body>
+<div class="floating-bg">VERTEXFLOW TECH</div>
 
-<header>
-  <h1>🚀 VERTEXFLOW 💙</h1>
-  <p>Technology is evolving every day—don’t get left behind!</p>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#lessons">Lessons</a>
-    <a href="#pricing">Pricing</a>
-    <a href="#testimonials">Reviews</a>
-    <a href="#blog">Blog</a>
-  </nav>
-  <a href="https://wa.me/254751233681?text=Hi%20VERTEXFLOW%20I%20want%20to%20join" class="btn">Join WhatsApp Community</a>
-</header>
-
-<section id="about">
-  <h2>What is VERTEXFLOW?</h2>
-  <div class="video-box">
-    <video controls autoplay muted loop playsinline>
-      <source src="https://videos.pexels.com/video-files/3130285/3130285-uhd_2560_1440_25fps.mp4" type="video/mp4">
-    </video>
-    <p style="text-align:center;margin-top:15px"><b>VERTEXFLOW</b> is a community built to help you learn, grow, and succeed. 
-    Free tech lessons, WhatsApp bot automations, AI tips, freelancing advice, and cybersecurity hacks. 💙🚀</p>
+<nav>
+  <div class="logo"><img src="https://i.imgur.com/your-logo.png" alt="VF"> VERTEXFLOW TECH</div>
+  <div>
+    <a href="#home">Home</a>
+    <a href="#bots">Bots</a>
+    <a href="#boosting">Boosting</a>
+    <a href="#vcf">VCF Portal</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#" onclick="document.getElementById('loginModal').style.display='flex'">Login</a>
   </div>
+</nav>
+
+<section id="home" class="hero">
+  <h1>🚀 VERTEXFLOW TECH 💙</h1>
+  <p>Learn • Build • Grow | Bot Deployment, Social Media Boosting, VCF Portal</p>
+  <a href="https://chat.whatsapp.com/CjzzBrh2h2BIJlDhrEqFLp" class="btn">Join WhatsApp Group</a>
+  <a href="https://wa.me/254751233681" class="btn">Chat Admin</a>
 </section>
 
-<section id="lessons">
-  <h2>📚 10 Tech Lessons - Click to Learn</h2>
+<section id="bots">
+  <h2>🤖 Bot Deployment - KSh 100 Only After Service</h2>
+  <p style="text-align:center">Choose your bot and text us for instant deployment</p>
   <div class="grid">
-    <div class="card" onclick="openLesson('l1')"><h3>1. Build WhatsApp Bot</h3><p>Node.js + Baileys from zero</p></div>
-    <div class="card" onclick="openLesson('l2')"><h3>2. Website From Scratch</h3><p>HTML, CSS, JS + GitHub</p></div>
-    <div class="card" onclick="openLesson('l3')"><h3>3. Smartphone Hidden Codes</h3><p>Boost speed & privacy</p></div>
-    <div class="card" onclick="openLesson('l4')"><h3>4. Freelancing 101</h3><p>Get clients on Fiverr</p></div>
-    <div class="card" onclick="openLesson('l5')"><h3>5. AI Prompt Mastery</h3><p>ChatGPT for money</p></div>
-    <div class="card" onclick="openLesson('l6')"><h3>6. CyberSec Basics</h3><p>Stay safe online</p></div>
-    <div class="card" onclick="openLesson('l7')"><h3>7. TikTok Growth</h3><p>Go viral in 30 days</p></div>
-    <div class="card" onclick="openLesson('l8')"><h3>8. Canva Design</h3><p>Make pro posters</p></div>
-    <div class="card" onclick="openLesson('l9')"><h3>9. Passive Income</h3><p>Earn with digital products</p></div>
-    <div class="card" onclick="openLesson('l10')"><h3>10. GitHub for Beginners</h3><p>Host anything free</p></div>
+    <div class="card"><h3>CYPHER X</h3><p>Anti-link, Anti-spam, AI Chat GPT4, Auto View Status</p><a href="https://wa.me/254751233681?text=I%20want%20CYPHER%20X%20Bot%20Deployment" class="whatsapp-btn">Deploy for 100 KES</a></div>
+    <div class="card"><h3>BWM @ BOT</h3><p>Group management, Tag all, Welcome/Goodbye</p><a href="https://wa.me/254751233681?text=I%20want%20BWM%20Bot%20Deployment" class="whatsapp-btn">Deploy for 100 KES</a></div>
+    <div class="card"><h3>RAVEN BOT</h3><p>Downloader YT/FB/TIKTOK, Sticker Maker, Games</p><a href="https://wa.me/254751233681?text=I%20want%20RAVEN%20Bot%20Deployment" class="whatsapp-btn">Deploy for 100 KES</a></div>
+    <div class="card"><h3>PRABATH BOT</h3><p>AI Chat Gemini, Lyrics, Text to Image</p><a href="https://wa.me/254751233681?text=I%20want%20PRABATH%20Bot%20Deployment" class="whatsapp-btn">Deploy for 100 KES</a></div>
+    <div class="card"><h3>JEXPLOT BOT</h3><p>Admin Tools, Ban/Crash protection, Always Online</p><a href="https://wa.me/254751233681?text=I%20want%20JEXPLOT%20Bot%20Deployment" class="whatsapp-btn">Deploy for 100 KES</a></div>
   </div>
 </section>
 
-<section id="pricing" style="background:#0a0a0a">
-  <h2>💰 Services & Pricing - Pay After Delivery</h2>
-  <div class="pricing">
-    <div class="price-card">
-      <h3>VERTEXFLOW Bot Setup</h3>
-      <div class="price">KSh 1,500</div>
-      <ul><li>Anti-Link & Anti-Spam</li><li>Auto Welcome/Goodbye</li><li>Admin Tools</li><li>1 Month Support</li></ul>
-      <a href="https://wa.me/254751233681?text=I%20want%20Bot%20Setup" class="btn">Order Now</a>
-    </div>
-    <div class="price-card popular">
-      <h3>Website Design</h3>
-      <div class="price">KSh 3,000</div>
-      <ul><li>Professional Site</li><li>Mobile Responsive</li><li>WhatsApp Button</li><li>Free Hosting</li></ul>
-      <a href="https://wa.me/254751233681?text=I%20want%20Website%20Design" class="btn">Order Now</a>
-    </div>
-    <div class="price-card">
-      <h3>Social Media Boost</h3>
-      <div class="price">KSh 1,000+</div>
-      <ul><li>YouTube Watchtime</li><li>TikTok Followers</li><li>IG Likes & Views</li><li>Fast Delivery</li></ul>
-      <a href="https://wa.me/254751233681?text=I%20want%20Boosting" class="btn">Order Now</a>
-    </div>
+<section id="boosting" style="background:#0a0a0a">
+  <h2>📈 Social Media Boosting - Post Link Only</h2>
+  <p style="text-align:center">1000 Likes/Views/Followers = KSh 80 Only</p>
+  <div class="grid">
+    <div class="card"><h3>TikTok</h3><p>1000 Views, Likes, Followers</p><a href="https://wa.me/254751233681?text=I%20want%20TikTok%20Boost" class="whatsapp-btn">Order 80 KES</a></div>
+    <div class="card"><h3>Instagram</h3><p>1000 Likes, Followers, Views</p><a href="https://wa.me/254751233681?text=I%20want%20IG%20Boost" class="whatsapp-btn">Order 80 KES</a></div>
+    <div class="card"><h3>YouTube</h3><p>1000 Views, Watchtime, Subscribers</p><a href="https://wa.me/254751233681?text=I%20want%20YT%20Boost" class="whatsapp-btn">Order 80 KES</a></div>
+    <div class="card"><h3>Facebook</h3><p>1000 Likes, Followers, Shares</p><a href="https://wa.me/254751233681?text=I%20want%20FB%20Boost" class="whatsapp-btn">Order 80 KES</a></div>
   </div>
 </section>
 
-<section id="testimonials">
-  <h2>⭐ What Our Clients Say</h2>
-  <div class="testimonials">
-    <div class="testimonial">
-      <div class="stars">★★★</div>
-      <p>"Vertexflow set up my WhatsApp bot in 2 hours. Now my group runs itself. Pay after delivery was real!"</p>
-      <div class="name">- Brian K, Nairobi</div>
-    </div>
-    <div class="testimonial">
-      <div class="stars">★★★</div>
-      <p>"They built me a website just like this one. Professional and clean. Got 3 clients in the first week."</p>
-      <div class="name">- Amina S, Mombasa</div>
-    </div>
-    <div class="testimonial">
-      <div class="stars">★★★★★</div>
-      <p>"The TikTok growth lesson helped me hit 10k followers in 1 month. The lessons are 100% practical."</p>
-      <div class="name">- Kevin O, Kisumu</div>
-    </div>
+<section id="vcf">
+  <h2>📇 VCF Contact Portal</h2>
+  <div class="vcf-box">
+    <p>Upload contacts and download as VCF. Auto-deletes after limit to protect privacy.</p>
+    <input type="text" placeholder="Enter Your Name">
+    <input type="email" placeholder="Enter Your Email">
+    <input type="file" accept=".csv,.txt">
+    <button class="btn">Upload & Generate VCF</button>
+    <p style="font-size:0.9rem;color:#aaa;margin-top:10px">*Admin Dashboard available. Contacts auto-delete after 24hrs</p>
   </div>
 </section>
 
-<section id="blog" style="background:#0a0a0a">
-  <h2>📝 Daily Tech Tips Blog</h2>
-  <div class="blog-post">
-    <div class="date">Aug 21, 2026</div>
-    <h3>3 Ways to Make Money with AI in 2026</h3>
-    <p>1. Sell AI-generated logos on Fiverr. 2. Write blog posts with ChatGPT. 3. Create TikTok scripts with AI. Start today!</p>
+<section id="reviews" style="background:#0a0a0a">
+  <h2>⭐ 20+ Reviews From Clients</h2>
+  <div class="grid">
+    <div class="testimonial"><div class="stars">★★★</div><p>"Bot ya CYPHER X imenisaidia sana. 100 bob tu na kazi ikawa"</p><b>- Brian N</b></div>
+    <div class="testimonial"><div class="stars">★★★</div><p>"Niliboost TikTok 80 bob nkapata 1k views in 2 hours"</p><b>- Amina K</b></div>
+    <div class="testimonial"><div class="stars">★★★</div><p>"VCF portal ni safi. Inafuta contacts automatically"</p><b>- Kevin O</b></div>
+    <div class="testimonial"><div class="stars">★★★</div><p>"Pay after service ni ukweli. Hakuna ujanja"</p><b>- Faith M</b></div>
+    <div class="testimonial"><div class="stars">★★★</div><p>"RAVEN BOT inadownload video zote. Worth 100 bob"</p><b>- James W</b></div>
+    <div class="testimonial"><div class="stars">★★★</div><p>"Admin ni msee poa. Anarespond haraka WhatsApp"</p><b>- Grace L</b></div>
   </div>
-  <div class="blog-post">
-    <div class="date">Aug 20, 2026</div>
-    <h3>Smartphone Code: *#06#</h3>
-    <p>Dial this to check your IMEI instantly. Helps when your phone is stolen. Save this code!</p>
-  </div>
-  <div class="blog-post">
-    <div class="date">Aug 19, 2026</div>
-    <h3>Avoid This WhatsApp Scam</h3>
-    <p>Never click links that say "Your WhatsApp will be deleted". It's phishing. Always verify with WhatsApp official.</p>
+  <p style="text-align:center;margin-top:20px">...and 14 more 5-star reviews</p>
+</section>
+
+<section>
+  <h2>💎 Why Choose VERTEXFLOW TECH</h2>
+  <div class="grid">
+    <div class="card"><h3>1. Pay After Service</h3><p>No risk. Pay 100 KES after bot is deployed</p></div>
+    <div class="card"><h3>2. Fast Delivery</h3><p>Bots deployed in 10 minutes</p></div>
+    <div class="card"><h3>3. 24/7 Support</h3><p>We are always online for you</p></div>
+    <div class="card"><h3>4. Professional</h3><p>Clean code, No bugs</p></div>
+    <div class="card"><h3>5. Cheap Prices</h3><p>100 KES bots, 80 KES boosting</p></div>
+    <div class="card"><h3>6. Trusted</h3><p>500+ happy clients</p></div>
   </div>
 </section>
 
 <footer>
-  <p>© 2026 VERTEXFLOW. Building the future—one skill at a time 💙🚀</p>
-  <p>Contact: +254 751 233 681 | #VertexFlow #LearnEveryDay</p>
+  <p>© 2026 VERTEXFLOW TECH. Learn • Build • Grow 💙🚀</p>
+  <p><a href="https://chat.whatsapp.com/CjzzBrh2h2BIJlDhrEqFLp" style="color:#00f5ff">Join Our WhatsApp Group</a></p>
 </footer>
 
-<a href="https://wa.me/254751233681" class="whatsapp-btn"><svg width="30" height="30" fill="#fff" viewBox="0 0 24 24"><path d="M20.52 3.449C18.24 1.245 15.24 0.045 12.04 0C5.44 0 .08 5.36.08 11.96c0 2.106.549 4.162 1.594 5.98L0 24l6.228-1.634c1.748.956 3.704 1.459 5.698 1.459c6.599 0 11.959-5.36 11.959-11.96 0-3.197-1.245-6.2-3.406-8.456z"/></svg></a>
+<a href="https://wa.me/254751233681" class="whatsapp-float"><svg width="30" height="30" fill="#fff" viewBox="0 0 24 24"><path d="M20.52 3.449C18.24 1.245 15.24 0.045 12.04 0C5.44 0 .08 5.36.08 11.96c0 2.106.549 4.162 1.594 5.98L0 24l6.228-1.634c1.748.956 3.704 1.459 5.698 1.459c6.599 0 11.959-5.36 11.959-11.96 0-3.197-1.245-6.2-3.406-8.456z"/></svg></a>
 
-<!-- 10 Lesson Modals -->
-<div id="l1" class="modal"><div class="modal-content"><span class="close" onclick="closeLesson('l1')">&times;</span><h2>Build WhatsApp Bot</h2><p>1. Install Node.js<br>2. npm i @whiskeysockets/baileys<br>3. Create index.js<br>4. Run node index.js and scan QR</p></div></div>
-<div id="l2" class="modal"><div class="modal-content"><span class="close" onclick="closeLesson('l2')">&times;</span><h2>Website From Scratch</h2><p>1. Create index.html<br>2. Add HTML + CSS<br>3. git push to GitHub<br>4. Enable GitHub Pages</p></div></div>
-<div id="l3" class="modal"><div class="modal-content"><span class="close" onclick="closeLesson('l3')">&times;</span><h2>Smartphone Hidden Codes</h2><p>*#06# = IMEI<br>*#4636#*#* = Phone Info<br>*#0228# = Battery Status</p></div></div>
-<div id="l4" class="modal"><div class="modal-content"><span class="close" onclick="closeLesson('l4')">&times;</span><h2>Freelancing 101</h2><p>1. Create Fiverr profile<br>2. Gig: "I will create WhatsApp Bot"<br>3. Deliver in 24hrs<br>4. Ask for review</p></div></div>
-<div id="l5" class="modal"><div class="modal-content"><span class="close" onclick="closeLesson('l5')">&times;</span><h2>AI Prompt Mastery</h2><p>"Act as a social media manager. Create 10 TikTok ideas for a tech channel". Sell the results.</p></div></div>
-<div id="l6" class="modal"><div class="modal-content"><span class="close" onclick="closeLesson('l6')">&times;</span><h2>CyberSec Basics</h2><p>1. Turn on 2FA<br>2. Never click unknown links<br>3. Use strong password<br>4. Check URL before login</p></div></div>
-<div id="l7" class="modal"><div class="modal-content"><span class="close" onclick="closeLesson('l7')">&times;</span><h2>TikTok Growth</h2><p>1. Post 3x per day<br>2. First 3 seconds = hook<br>3. Use trending sounds<br>4. Reply to comments</p></div></div>
-<div id="l8" class="modal"><div class="modal-content"><span class="close" onclick="closeLesson('l8')">&times;</span><h2>Canva Design</h2><p>1. Search "YouTube Thumbnail"<br>2. Use bold text + face<br>3. Colors: Blue + Yellow<br>4. Download as PNG</p></div></div>
-<div id="l9" class="modal"><div class="modal-content"><span class="close" onclick="closeLesson('l9')">&times;</span><h2>Passive Income</h2><p>Sell: Ebooks, Canva templates, Bot scripts on Gumroad. Create once, earn forever.</p></div></div>
-<div id="l10" class="modal"><div class="modal-content"><span class="close" onclick="closeLesson('l10')">&times;</span><h2>GitHub for Beginners</h2><p>1. Create repo<br>2. Upload files<br>3. Settings > Pages > main > Save<br>4. Your site is live!</p></div></div>
-
-<!-- Popup after 5 seconds -->
+<!-- Popup for Deployment -->
 <div id="popup">
   <div class="popup-box">
-    <h3>🚀 Welcome to VERTEXFLOW!</h3>
-    <p>Get FREE Tech Lessons + Bot Setup<br>Pay After Delivery</p>
-    <a href="https://wa.me/254751233681" class="btn">Join Now</a>
+    <h3>🚀 Need Bot Deployment?</h3>
+    <p>Text us now on WhatsApp for instant setup!<br>Only KSh 100 After Service</p>
+    <a href="https://wa.me/254751233681?text=I%20need%20Bot%20Deployment" class="btn">Chat Now</a>
     <br><button onclick="document.getElementById('popup').style.display='none'" style="background:red;color:#fff;padding:8px 15px;border:none;border-radius:5px;margin-top:15px;cursor:pointer">Close</button>
   </div>
 </div>
 
+<!-- Email Login Modal -->
+<div id="loginModal">
+  <div class="popup-box">
+    <h3>🔐 Login to VERTEXFLOW</h3>
+    <input type="email" id="email" placeholder="Enter Your Email">
+    <button class="btn" onclick="login()">Continue</button>
+    <br><button onclick="document.getElementById('loginModal').style.display='none'" style="background:red;color:#fff;padding:8px 15px;border:none;border-radius:5px;margin-top:15px;cursor:pointer">Cancel</button>
+  </div>
+</div>
+
 <script>
-function openLesson(id){document.getElementById(id).style.display='block'}
-function closeLesson(id){document.getElementById(id).style.display='none'}
+// Popup after 5 seconds
 setTimeout(function(){document.getElementById('popup').style.display='flex';}, 5000);
+
+// Simple Email Login
+function login(){
+  let email = document.getElementById('email').value;
+  if(email){
+    alert('Welcome '+email+'! Redirecting to dashboard...');
+    document.getElementById('loginModal').style.display='none';
+  }else{
+    alert('Please enter email');
+  }
+}
 </script>
 
 </body>
